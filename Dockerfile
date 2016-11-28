@@ -23,5 +23,7 @@ ONBUILD RUN npm install
 ONBUILD RUN mix deps.compile --only prod
 
 ONBUILD COPY . /usr/src/app/
+ONBUILD RUN mkdir -p /usr/src/app/priv/static
+ONBUILD RUN mix phoenix.digest
 ONBUILD RUN mix compile
 
